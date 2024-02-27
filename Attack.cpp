@@ -5,34 +5,29 @@ using std::cout;
 using std::endl;
 
 // ATTACK CLASS DEFINITIONS
-
-// default constructor
-Attack::Attack()
-{
-	(*this).name = "DefaultAttack";
-	(*this).physicalDamage = 10;
-	(*this).magicalDamage = 10;
-}
-
 // copy constructor
-Attack::Attack(const Attack& OriginalAttack)
-{
-	(*this).name = OriginalAttack.name;
-	(*this).physicalDamage = OriginalAttack.physicalDamage;
-	(*this).magicalDamage = OriginalAttack.magicalDamage;
-}
+Attack::Attack(const Attack& aOriginalAttack) :
+	name(aOriginalAttack.name),
+	physicalDamage(aOriginalAttack.physicalDamage), magicalDamage(aOriginalAttack.magicalDamage)
+{ };
+// default constructor
+Attack::Attack() // determine default values /!\ NOT NECESSARY?
+{ };
+// parameterized constructor
+Attack::Attack(string aName, unsigned int aPhysicalDamage, unsigned int aMagicalDamage) :
+	name(aName), physicalDamage(aPhysicalDamage), magicalDamage(aMagicalDamage)
+{ };
 
 // GETTERS & SETTERS
 
-string Attack::getName() { return (*this).name; }
+string Attack::getName()  const { return (*this).name; }
 void Attack::setName(string aNewName) { (*this).name = aNewName; }
 
-unsigned int Attack::getPhysicalDamage() { return (*this).physicalDamage; }
+unsigned int Attack::getPhysicalDamage()  const { return (*this).physicalDamage; }
 void Attack::setPhysicalDamage(unsigned int aNewPhysicalDamage) { (*this).physicalDamage = aNewPhysicalDamage; }
 
-unsigned int Attack::getMagicalDamage() { return (*this).magicalDamage; }
+unsigned int Attack::getMagicalDamage()  const { return (*this).magicalDamage; }
 void Attack::setMagicalDamage(unsigned int aNewMagicalDamage) { (*this).magicalDamage = aNewMagicalDamage; }
-
 
 
 

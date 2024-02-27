@@ -16,24 +16,22 @@ private:
 	unsigned int magicalDamage;
 
 public:
-	// default constructor
-	Attack();
 	// copy constructor
 	Attack(const Attack&);
-
-	// initializer list constructor
-	Attack(string aName, unsigned int aPhysicalDamage, unsigned int aMagicalDamage) :
-		name(aName), physicalDamage(aPhysicalDamage), magicalDamage(aMagicalDamage)
-	{ };
+	// default constructor
+	Attack(); // determine default values /!\ NOT NECESSARY?
+	// parameterized constructor
+	Attack(string, unsigned int, unsigned int);
 
 	// GETTERS & SETTERS
-	string getName();
+	string getName() const;
 	void setName(string);
 
-	unsigned int getPhysicalDamage();
+	unsigned int getPhysicalDamage() const;
 	void setPhysicalDamage(unsigned int);
 
-	unsigned int getMagicalDamage();
+	unsigned int getMagicalDamage() const;
 	void setMagicalDamage(unsigned int);
+	
 };
 
