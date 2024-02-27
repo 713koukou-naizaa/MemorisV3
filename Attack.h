@@ -9,11 +9,11 @@ class Attack
 {
 private:
 	// name of the attack
-	string name;
+	string attackName;
 	// physical damage of the attack
-	unsigned int physicalDamage;
+	unsigned int attackPhysicalDamage;
 	// magical damage of the attack
-	unsigned int magicalDamage;
+	unsigned int attackMagicalDamage;
 
 public:
 	// copy constructor
@@ -24,14 +24,13 @@ public:
 	Attack(string, unsigned int, unsigned int);
 
 	// GETTERS & SETTERS
-	string getName() const;
-	void setName(string);
+	string getAttackName() const;
+	void setAttackName(string);
 
-	unsigned int getPhysicalDamage() const;
-	void setPhysicalDamage(unsigned int);
+	unsigned int getAttackPhysicalDamage() const;
+	void setAttackPhysicalDamage(unsigned int);
 
-	unsigned int getMagicalDamage() const;
-	void setMagicalDamage(unsigned int);
-	
+	unsigned int getAttackMagicalDamage() const;
+	void setAttackMagicalDamage(unsigned int);
 };
 

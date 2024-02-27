@@ -1,46 +1,62 @@
+#include<iostream>
 #include "LearnedAttacks.h"
+
+using std::cout;
+using std::endl;
 
 // LEARNED_ATTACKS CLASS
 // copy constructor
 LearnedAttacks::LearnedAttacks(const LearnedAttacks& originalLearnedAttacks) :
-	FirstAttack(originalLearnedAttacks.FirstAttack), SecondAttack(originalLearnedAttacks.SecondAttack),
-	ThirdAttack(originalLearnedAttacks.ThirdAttack), FourthAttack(originalLearnedAttacks.FourthAttack),
-	maxNumberOfAttacks(originalLearnedAttacks.maxNumberOfAttacks)
+	FirstLearnedAttack(originalLearnedAttacks.FirstLearnedAttack), SecondLearnedAttack(originalLearnedAttacks.SecondLearnedAttack),
+	ThirdLearnedAttack(originalLearnedAttacks.ThirdLearnedAttack), FourthLearnedAttack(originalLearnedAttacks.FourthLearnedAttack),
+	maxNumberOfLearnedAttacks(originalLearnedAttacks.maxNumberOfLearnedAttacks)
 { };
 // default constructor
 LearnedAttacks::LearnedAttacks() // determine default values /!\ NOT NECESSARY?
-{ };
+{
+	FirstLearnedAttack = Attack();
+	SecondLearnedAttack = Attack();
+	ThirdLearnedAttack = Attack();
+	FourthLearnedAttack = Attack();
+};
 // parameterized constructor
-LearnedAttacks::LearnedAttacks(Attack aFirstAttack, Attack aSecondAttack,
-	Attack aThirdAttack, Attack aFourthAttack,
-	unsigned short int aMaxNumberOfAttacks,
+LearnedAttacks::LearnedAttacks(Attack aFirstLearnedAttack, Attack aSecondLearnedAttack,
+	Attack aThirdLearnedAttack, Attack aFourthLearnedAttack,
+	unsigned short int aMaxNumberOfLearnedAttacks,
 	vector<Attack> aLearnedAttacksVector) :
-	FirstAttack(aFirstAttack), SecondAttack(aSecondAttack),
-	ThirdAttack(aThirdAttack), FourthAttack(aFourthAttack),
-	maxNumberOfAttacks(aMaxNumberOfAttacks),
+	FirstLearnedAttack(aFirstLearnedAttack), SecondLearnedAttack(aSecondLearnedAttack),
+	ThirdLearnedAttack(aThirdLearnedAttack), FourthLearnedAttack(aFourthLearnedAttack),
+	maxNumberOfLearnedAttacks(aMaxNumberOfLearnedAttacks),
 	learnedAttacksVector(aLearnedAttacksVector)
 { };
 
 // GETTERS & SETTERS
-Attack LearnedAttacks::getFirstAttack() const { return FirstAttack; }
-void LearnedAttacks::setFirstAttack(Attack aFirstAttack) { FirstAttack = aFirstAttack; }
+Attack LearnedAttacks::getFirstLearnedAttack() const { return FirstLearnedAttack; }
+void LearnedAttacks::setFirstLearnedAttack(Attack aNewFirstLearnedAttack) { FirstLearnedAttack = aNewFirstLearnedAttack; }
 
-Attack LearnedAttacks::getSecondAttack() const { return SecondAttack; }
-void LearnedAttacks::setSecondAttack(Attack aSecondAttack) { SecondAttack = aSecondAttack; }
+Attack LearnedAttacks::getSecondLearnedAttack() const { return SecondLearnedAttack; }
+void LearnedAttacks::setSecondLearnedAttack(Attack aNewSecondLearnedAttack) { SecondLearnedAttack = aNewSecondLearnedAttack; }
 
-Attack LearnedAttacks::getThirdAttack() const { return ThirdAttack; }
-void LearnedAttacks::setThirdAttack(Attack aThirdAttack) { ThirdAttack = aThirdAttack; }
+Attack LearnedAttacks::getThirdLearnedAttack() const { return ThirdLearnedAttack; }
+void LearnedAttacks::setThirdLearnedAttack(Attack aNewThirdLearnedAttack) { ThirdLearnedAttack = aNewThirdLearnedAttack; }
 
-Attack LearnedAttacks::getFourthAttack() const { return FourthAttack; }
-void LearnedAttacks::setFourthAttack(Attack aFourthAttack) { FourthAttack = aFourthAttack; }
+Attack LearnedAttacks::getFourthLearnedAttack() const { return FourthLearnedAttack; }
+void LearnedAttacks::setFourthLearnedAttack(Attack aNewFourthLearnedAttack) { FourthLearnedAttack = aNewFourthLearnedAttack; }
 
-unsigned short int LearnedAttacks::getMaxNumberOfAttacks() const { return maxNumberOfAttacks; }
-void LearnedAttacks::setMaxNumberOfAttacks(unsigned short int aMaxNumberOfAttacks) { maxNumberOfAttacks = aMaxNumberOfAttacks; }
+unsigned short int LearnedAttacks::getMaxNumberOfLearnedAttacks() const { return maxNumberOfLearnedAttacks; }
+void LearnedAttacks::setMaxNumberOfLearnedAttacks(unsigned short int aNewMaxNumberOfLearnedAttacks) { maxNumberOfLearnedAttacks = aNewMaxNumberOfLearnedAttacks; }
 
 vector<Attack> LearnedAttacks::getLearnedAttacksVector() const { return learnedAttacksVector; }
-void LearnedAttacks::setLearnedAttacksVector(vector<Attack> aLearnedAttacksVector) { learnedAttacksVector = aLearnedAttacksVector; }
+void LearnedAttacks::setLearnedAttacksVector(vector<Attack> aNewLearnedAttacksVector) { learnedAttacksVector = aNewLearnedAttacksVector; }
 
-
+// LEARNED_ATTACKS FUNCTIONS
+void LearnedAttacks::displayLearnedAttacks() const
+{
+	cout << "First attack : " << (*this).getLearnedAttacksVector()[0].getAttackName() << endl;
+	cout << "Second attack : " << (*this).getLearnedAttacksVector()[1].getAttackName() << endl;
+	cout << "Third attack : " << (*this).getLearnedAttacksVector()[2].getAttackName() << endl;
+	cout << "Fourth attack : " << (*this).getLearnedAttacksVector()[3].getAttackName() << endl;
+}
 
 
 

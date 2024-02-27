@@ -7,27 +7,31 @@ using std::endl;
 // ATTACK CLASS DEFINITIONS
 // copy constructor
 Attack::Attack(const Attack& aOriginalAttack) :
-	name(aOriginalAttack.name),
-	physicalDamage(aOriginalAttack.physicalDamage), magicalDamage(aOriginalAttack.magicalDamage)
+	attackName(aOriginalAttack.attackName),
+	attackPhysicalDamage(aOriginalAttack.attackPhysicalDamage), attackMagicalDamage(aOriginalAttack.attackMagicalDamage)
 { };
 // default constructor
 Attack::Attack() // determine default values /!\ NOT NECESSARY?
-{ };
+{
+	(*this).attackName = "defaultAttackName";
+	(*this).attackPhysicalDamage = 1;
+	(*this).attackMagicalDamage = 1;
+};
 // parameterized constructor
-Attack::Attack(string aName, unsigned int aPhysicalDamage, unsigned int aMagicalDamage) :
-	name(aName), physicalDamage(aPhysicalDamage), magicalDamage(aMagicalDamage)
+Attack::Attack(string aAttackName, unsigned int aAttackPhysicalDamage, unsigned int aAttackMagicalDamage) :
+	attackName(aAttackName), attackPhysicalDamage(aAttackPhysicalDamage), attackMagicalDamage(aAttackMagicalDamage)
 { };
 
 // GETTERS & SETTERS
 
-string Attack::getName()  const { return (*this).name; }
-void Attack::setName(string aNewName) { (*this).name = aNewName; }
+string Attack::getAttackName()  const { return (*this).attackName; }
+void Attack::setAttackName(string aNewAttackName) { (*this).attackName = aNewAttackName; }
 
-unsigned int Attack::getPhysicalDamage()  const { return (*this).physicalDamage; }
-void Attack::setPhysicalDamage(unsigned int aNewPhysicalDamage) { (*this).physicalDamage = aNewPhysicalDamage; }
+unsigned int Attack::getAttackPhysicalDamage()  const { return (*this).attackPhysicalDamage; }
+void Attack::setAttackPhysicalDamage(unsigned int aNewAttackPhysicalDamage) { (*this).attackPhysicalDamage = aNewAttackPhysicalDamage; }
 
-unsigned int Attack::getMagicalDamage()  const { return (*this).magicalDamage; }
-void Attack::setMagicalDamage(unsigned int aNewMagicalDamage) { (*this).magicalDamage = aNewMagicalDamage; }
+unsigned int Attack::getAttackMagicalDamage()  const { return (*this).attackMagicalDamage; }
+void Attack::setAttackMagicalDamage(unsigned int aNewAttackMagicalDamage) { (*this).attackMagicalDamage = aNewAttackMagicalDamage; }
 
 
 

@@ -9,12 +9,14 @@ using std::vector;
 class LearnedAttacks
 {
 private:
-	Attack FirstAttack;
-	Attack SecondAttack;
-	Attack ThirdAttack;
-	Attack FourthAttack;
-	unsigned short int maxNumberOfAttacks = 4;
-	vector<Attack>learnedAttacksVector{ FirstAttack,SecondAttack,ThirdAttack,FourthAttack };
+	Attack FirstLearnedAttack;
+	Attack SecondLearnedAttack;
+	Attack ThirdLearnedAttack;
+	Attack FourthLearnedAttack;
+	unsigned short int maxNumberOfLearnedAttacks = 4;
+	vector<Attack>learnedAttacksVector{
+		FirstLearnedAttack,SecondLearnedAttack,
+		ThirdLearnedAttack,FourthLearnedAttack };
 
 public:
 	// copy constructor
@@ -27,25 +29,25 @@ public:
 		vector<Attack>);
 
 	// GETTERS & SETTERS declarations
-	Attack getFirstAttack() const;
-	void setFirstAttack(Attack);
+	Attack getFirstLearnedAttack() const;
+	void setFirstLearnedAttack(Attack);
 
-	Attack getSecondAttack() const;
-	void setSecondAttack(Attack);
+	Attack getSecondLearnedAttack() const;
+	void setSecondLearnedAttack(Attack);
 
-	Attack getThirdAttack() const;
-	void setThirdAttack(Attack);
+	Attack getThirdLearnedAttack() const;
+	void setThirdLearnedAttack(Attack);
 
-	Attack getFourthAttack() const;
-	void setFourthAttack(Attack);
+	Attack getFourthLearnedAttack() const;
+	void setFourthLearnedAttack(Attack);
 
-	unsigned short int getMaxNumberOfAttacks() const;
-	void setMaxNumberOfAttacks(unsigned short int);
+	unsigned short int getMaxNumberOfLearnedAttacks() const;
+	void setMaxNumberOfLearnedAttacks(unsigned short int);
 
 	vector<Attack> getLearnedAttacksVector() const;
 	void setLearnedAttacksVector(vector<Attack>);
 
-
-
+	// LEARNED_ATTACKS FUNCTIONS
+	void displayLearnedAttacks() const;
 };
 

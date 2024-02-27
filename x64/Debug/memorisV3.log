@@ -1,10 +1,9 @@
-﻿  Entity.cpp
-C:\Users\Enzo\source\repos\memorisV3\memorisV3\Entity.cpp(83,34): warning C4244: 'initialisation' : conversion de 'double' en 'unsigned int', perte possible de données
-C:\Users\Enzo\source\repos\memorisV3\memorisV3\Entity.cpp(90,33): warning C4244: 'initialisation' : conversion de 'double' en 'unsigned int', perte possible de données
+﻿  Attack.cpp
+  Entity.cpp
   Fight.cpp
-  main.cpp
-C:\Users\Enzo\source\repos\memorisV3\memorisV3\main.cpp(59,26): warning C4267: 'initialisation' : conversion de 'size_t' en 'unsigned int', perte possible de données
+  LearnedAttacks.cpp
   Player.cpp
-  Génération de code en cours...
-C:\Users\Enzo\source\repos\memorisV3\memorisV3\main.cpp(97): warning C4715: 'characterSelection' : les chemins de contrôle ne retournent pas tous une valeur
-  memorisV3.vcxproj -> C:\Users\Enzo\source\repos\memorisV3\x64\Debug\memorisV3.exe
+  Race.cpp
+  main.cpp
+  Generating Code...
+  memorisV3.vcxproj -> C:\Users\Enzo\source\repos\MemorisV3\x64\Debug\memorisV3.exe

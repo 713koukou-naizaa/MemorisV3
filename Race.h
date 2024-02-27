@@ -13,19 +13,19 @@ class Race
 {
 private:
 	// name of the race
-	string name;
+	string raceName;
 	// base number of health points of the race
-	unsigned int healthPoints = 100;
+	unsigned int raceBaseHealthPoints = 100;
 	// base physical strength of the race
-	double physicalStrength = 10;
+	double raceBasePhysicalStrength = 10;
 	// base magical strength stat of the race
-	double magicalStrength = 10;
+	double raceBaseMagicalStrength = 10;
 	// base physical defense stat of the race
-	double physicalDefense = 10;
+	double raceBasePhysicalDefense = 10;
 	// base magical defense stat of the race
-	double magicalDefense = 10;
+	double raceBaseMagicalDefense = 10;
 	// vector containing all the attacks the race can learn
-	vector<Attack>availableAttacks;
+	vector<Attack>raceAvailableAttacks;
 
 public:
 	// copy constructor
@@ -36,36 +36,28 @@ public:
 	Race(string, unsigned int,
 		double, double,
 		double, double,
-		vector<Attack>, LearnedAttacks);
+		vector<Attack>);
 
 	// GETTERS & SETTERS
-	string getName() const;
-	void setName(string);
+	string getRaceName() const;
+	void setRaceName(string);
 
-	unsigned int getHealthPoints() const;
-	void setHealthPoints(unsigned int);
+	unsigned int getRaceBaseHealthPoints() const;
+	void setRaceBaseHealthPoints(unsigned int);
 
-	double getPhysicalStrength() const;
-	void setPhysicalStrength(double);
+	double getRaceBasePhysicalStrength() const;
+	void setRaceBasePhysicalStrength(double);
 
-	double getMagicalStrength() const;
-	void setMagicalStrength(double);
+	double getRaceBaseMagicalStrength() const;
+	void setRaceBaseMagicalStrength(double);
 
-	double getPhysicalDefense() const;
-	void setPhysicalDefense(double);
+	double getRaceBasePhysicalDefense() const;
+	void setRaceBasePhysicalDefense(double);
 
-	double getMagicalDefense() const;
-	void setMagicalDefense(double);
+	double getRaceBaseMagicalDefense() const;
+	void setRaceBaseMagicalDefense(double);
 
-	vector<Attack> getAvailableAttacks() const;
-	void setAvailableAttacks(vector<Attack>);
-
-	// ENTITY FUNCTIONS
-	unsigned int calculatePhysicalRawDamages(Attack&) const;
-	unsigned int calculateMagicalRawDamages(Attack&) const;
-	unsigned int calculateDealtDamages(unsigned int, unsigned int) const;
-	void dealDamages(Race&, Attack&) const;
-	void displayAttacksNames() const;
-	void displayStats() const;
+	vector<Attack> getRaceAvailableAttacks() const;
+	void setRaceAvailableAttacks(vector<Attack>);
 };
 

@@ -5,9 +5,9 @@
 
 using std::cout;
 using std::endl;
-using std::cin;§
+using std::cin;
 using std::vector;
-
+/*
 // GAME FUNCTIONS DECLARATIONS
 // display the stats of the playable characters 
 void displayPlayableCharacters(const vector<Entity>);
@@ -17,42 +17,34 @@ string chooseUsername();
 Entity characterSelection(const vector<Entity>);
 // initialize the game (parameters needed at the start of the game)
 void initializeGame(Player&, const vector<Entity>);
-
+*/
 int main()
 {
 	// player creation
-	Player DefaultUser;
+	Player FirstPlayer{};
+
+	cout << FirstPlayer.getPlayerUsername() << endl;
+	cout << FirstPlayer.getPlayerEntity().getEntityName() << endl;
+	cout << FirstPlayer.getPlayerEntity().getEntityLearnedAttacks().getLearnedAttacksVector()[0].getAttackName() << endl;
+
+	
 
 	// attacks creations
-	Attack FirstTestAttack("FirstTestAttack", 10, 10);
-	Attack SecondTestAttack("SecondTestAttack", 20, 20);
-	Attack ThirdTestAttack("ThirdTestAttack", 30, 30);
-	Attack FourthTestAttack("FourthTestAttack", 40, 40);
 
 	// playable characters creations
-	Entity FirstCharacter("FirstCharacter", 200, 200,
-		0.57, 0.5, 0.6, 0.4,
-		FirstTestAttack, SecondTestAttack, ThirdTestAttack, FourthTestAttack);
-	Entity SecondCharacter("SecondCharacter", 150, 150,
-		0.7, 0.3, 0.4, 0.6,
-		FirstTestAttack, SecondTestAttack, ThirdTestAttack, FourthTestAttack);
 
 	// ennemies creations
-	Entity FirstEnnemy("FirstEnnemy", 100, 100,
-		0.6, 0.3, 0.7, 0.3, FirstTestAttack, SecondTestAttack, ThirdTestAttack, FourthTestAttack);
 
 	// vector containing all playable characters
-	vector<Entity>PlayableCharacters({ FirstCharacter, SecondCharacter });
+	//vector<Entity>PlayableCharacters({ FirstCharacter, SecondCharacter });
 
 
-	// FirstCharacter.dealDamages(SecondCharacter, FirstTestAttack);
-	// FirstCharacter.displayAttacksNames();
 
-	initializeGame(DefaultUser, PlayableCharacters);
+	//initializeGame(DefaultUser, PlayableCharacters);
 
 	return 0;
 }
-
+/*
 // GAME FUNCTIONS DEFINITIONS
 void displayPlayableCharacters(const vector<Entity> aPlayableCharacters)
 {
@@ -99,11 +91,11 @@ Entity characterSelection(const vector<Entity> aPlayableCharacters)
 void initializeGame(Player& aDefaultPlayer, const vector<Entity> aPlayableCharacters)
 {
 	cout << "Welcome to MemorisV3" << endl;
-	aDefaultPlayer.setName(chooseUsername());
+	aDefaultPlayer.setUsername(chooseUsername());
 	aDefaultPlayer.setChosenEntity(characterSelection(aPlayableCharacters));
 	aDefaultPlayer.displayProperties();
 }
-
+*/
 
 
 

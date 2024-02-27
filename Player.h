@@ -10,7 +10,7 @@ class Player
 {
 private:
 	// player username
-	string username;
+	string playerUsername;
 	// entity chosen by the player throughout the game
 	Entity PlayerEntity;
 
@@ -20,16 +20,13 @@ public:
 	// determine default values /!\ NOT NECESSARY?
 	Player();
 	// parameterized constructor
-	Player(string aUsername, Entity aPlayerEntity);
+	Player(string, Entity);
 
 	// GETTERS & SETTERS
-	string getUsername() const;
-	void setUsername(string);
+	string getPlayerUsername() const;
+	void setPlayerUsername(string);
 
-	Entity getChosenEntity() const;
-	void setChosenEntity(Entity);
-
-	// PLAYER FUNCTIONS
-	void displayProperties();
+	Entity getPlayerEntity() const;
+	void setPlayerEntity(Entity);
 };
 
