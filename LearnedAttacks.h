@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LEARNED_ATTACKS_H
+#define LEARNED_ATTACKS_H
 
 #include<iostream>
 #include<vector>
@@ -13,7 +14,9 @@ private:
 	Attack SecondLearnedAttack;
 	Attack ThirdLearnedAttack;
 	Attack FourthLearnedAttack;
+	// maximum number of attacks that can be learned at the same time
 	unsigned short int maxNumberOfLearnedAttacks = 4;
+	// vector containing all learned attacks
 	vector<Attack>learnedAttacksVector{
 		FirstLearnedAttack,SecondLearnedAttack,
 		ThirdLearnedAttack,FourthLearnedAttack };
@@ -22,11 +25,9 @@ public:
 	// copy constructor
 	LearnedAttacks(const LearnedAttacks&);
 	// default constructor
-	LearnedAttacks(); // determine default values /!\ NOT NECESSARY?
+	LearnedAttacks();
 	// parameterized constructor
-	LearnedAttacks(Attack, Attack, Attack, Attack,
-		unsigned short int,
-		vector<Attack>);
+	LearnedAttacks(Attack, Attack, Attack, Attack);
 
 	// GETTERS & SETTERS declarations
 	Attack getFirstLearnedAttack() const;
@@ -51,3 +52,5 @@ public:
 	void displayLearnedAttacks() const;
 };
 
+
+#endif

@@ -1,103 +1,79 @@
 #include <iostream>
 #include<vector>
 #include"Player.h"
-#include"Race.h"
+#include"Fight.h"
 
 using std::cout;
 using std::endl;
 using std::cin;
 using std::vector;
-/*
+
 // GAME FUNCTIONS DECLARATIONS
-// display the stats of the playable characters 
-void displayPlayableCharacters(const vector<Entity>);
-// returns the username the user chose
-string chooseUsername();
-// returns the character the user chose
-Entity characterSelection(const vector<Entity>);
+
 // initialize the game (parameters needed at the start of the game)
-void initializeGame(Player&, const vector<Entity>);
-*/
+void initializeGame(Player&, const vector<Race>, const LearnedAttacks);
+// function running the game
+void runGame(Player& aUserPlayer, Entity& aEnnemy, Fight& aFight);
+
 int main()
 {
-	// player creation
-	Player FirstPlayer{};
-
-	cout << FirstPlayer.getPlayerUsername() << endl;
-	cout << FirstPlayer.getPlayerEntity().getEntityName() << endl;
-	cout << FirstPlayer.getPlayerEntity().getEntityLearnedAttacks().getLearnedAttacksVector()[0].getAttackName() << endl;
-
-	
-
 	// attacks creations
+	Attack FirstAttack("First attack", true, 0, 0, 10);
+	Attack SecondAttack("Second attack", false, 10, 0, 0);
+	Attack ThirdAttack("Third attack", false, 0, 10, 0);
+	Attack FourthAttack("Fourth attack", false, 10, 10, 0);
+	Attack FifthAttack("Fifth attack", false, 20, 0, 0);
+	Attack SixthAttack("Sixth attack", false, 0, 20, 0);
+	Attack SeventhAttack("Seventh attack", false, 20, 20, 0);
 
-	// playable characters creations
+	// available attacks creations
+	vector<Attack>elvesAttacks({ FirstAttack, SecondAttack, ThirdAttack, FourthAttack });
+	vector<Attack>humansAttacks({ FourthAttack , FifthAttack, SixthAttack, SeventhAttack });
+
+	// learned attacks creations
+	vector<Attack>playerLearnedAttacksVector({ FirstAttack, SecondAttack, ThirdAttack, FourthAttack });
+	LearnedAttacks playerLearnedAttacks(FirstAttack, SecondAttack, ThirdAttack, FourthAttack);
+	vector<Attack>elfEnnemyLearnedAttacksVector({ FourthAttack, FifthAttack, SixthAttack, SeventhAttack });
+	LearnedAttacks elfEnnemyLearnedAttacks(FourthAttack, FifthAttack, SixthAttack, SeventhAttack);
+
+	// races creations
+	Race Elf("Elf", 200, 30, 4, 7, 3, 8, elvesAttacks);
+	Race Human("Human", 100, 20, 3, 5, 6, 4, humansAttacks);
+
+	// vector containing all playable races
+	vector<Race>playableRaces({ Elf, Human });
+
+	// user creation
+	Player UserPlayer("defaultPlayerUsername", Entity());
 
 	// ennemies creations
+	Entity ElfEnnemy("Elf ennemy", Elf, elfEnnemyLearnedAttacks);
 
-	// vector containing all playable characters
-	//vector<Entity>PlayableCharacters({ FirstCharacter, SecondCharacter });
+	// placerHolderFight
+	Fight placeHolderFight(UserPlayer.getPlayerEntity(), ElfEnnemy);
+	
+
+	initializeGame(UserPlayer, playableRaces, playerLearnedAttacks);
+
+	runGame(UserPlayer, ElfEnnemy, placeHolderFight);
 
 
-
-	//initializeGame(DefaultUser, PlayableCharacters);
-
+	
 	return 0;
 }
-/*
+
 // GAME FUNCTIONS DEFINITIONS
-void displayPlayableCharacters(const vector<Entity> aPlayableCharacters)
+
+void initializeGame(Player& aUserPlayer, const vector<Race> aPlayableRaces, const LearnedAttacks aPlayerLearnedAttacks)
 {
-	unsigned int vectorSize = aPlayableCharacters.size();
-	for (unsigned short int index = 0; index < vectorSize; index++)
-	{
-		cout << "[" << index+1 << "]" << endl;
-		aPlayableCharacters[index].displayStats();
-	}
+	cout << "Welcome to Memoris V3 !" << endl;
+	aUserPlayer.initializePlayerEntity(aPlayableRaces, aPlayerLearnedAttacks);
 }
 
-string chooseUsername()
+void runGame(Player& aUserPlayer, Entity& aEnnemy, Fight& aFight)
 {
-	string chosenUsername;
-	cout << "Please choose your username : ";
-	cin >> chosenUsername;
-	return chosenUsername;
+	aFight.runFight(aUserPlayer.getPlayerEntity(), aEnnemy);
 }
-
-Entity characterSelection(const vector<Entity> aPlayableCharacters)
-{
-	// the number of the character the user chose
-	unsigned short int characterChoice;
-	cout << "Now please chooe you character :\n" << endl;
-	displayPlayableCharacters(aPlayableCharacters);
-	cout << "Character number : ";
-	cin >> characterChoice;
-	cout << endl;
-
-	switch (characterChoice)
-	{
-	case 1:
-		return aPlayableCharacters[0];
-		break;
-	case 2:
-		return aPlayableCharacters[1];
-		break;
-	default:
-		cout << "Error : invalid character choice, please retry" << endl;
-		characterSelection(aPlayableCharacters);
-	}
-}
-
-void initializeGame(Player& aDefaultPlayer, const vector<Entity> aPlayableCharacters)
-{
-	cout << "Welcome to MemorisV3" << endl;
-	aDefaultPlayer.setUsername(chooseUsername());
-	aDefaultPlayer.setChosenEntity(characterSelection(aPlayableCharacters));
-	aDefaultPlayer.displayProperties();
-}
-*/
-
-
 
 
 

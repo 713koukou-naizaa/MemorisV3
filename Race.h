@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RACE_H
+#define RACE_H
 
 #include<iostream>
 #include<string>
@@ -15,15 +16,17 @@ private:
 	// name of the race
 	string raceName;
 	// base number of health points of the race
-	unsigned int raceBaseHealthPoints = 100;
+	unsigned int raceBaseHealthPoints;
+	// base speed of the race
+	unsigned int raceBaseSpeed;
 	// base physical strength of the race
-	double raceBasePhysicalStrength = 10;
+	double raceBasePhysicalStrength;
 	// base magical strength stat of the race
-	double raceBaseMagicalStrength = 10;
+	double raceBaseMagicalStrength;
 	// base physical defense stat of the race
-	double raceBasePhysicalDefense = 10;
+	double raceBasePhysicalDefense ;
 	// base magical defense stat of the race
-	double raceBaseMagicalDefense = 10;
+	double raceBaseMagicalDefense;
 	// vector containing all the attacks the race can learn
 	vector<Attack>raceAvailableAttacks;
 
@@ -31,12 +34,9 @@ public:
 	// copy constructor
 	Race(const Race&);
 	// default constructor
-	Race(); // determine default values /!\ NOT NECESSARY?
+	Race();
 	// parameterized constructor
-	Race(string, unsigned int,
-		double, double,
-		double, double,
-		vector<Attack>);
+	Race(string, unsigned int, unsigned int, double, double, double, double, vector<Attack>);
 
 	// GETTERS & SETTERS
 	string getRaceName() const;
@@ -44,6 +44,9 @@ public:
 
 	unsigned int getRaceBaseHealthPoints() const;
 	void setRaceBaseHealthPoints(unsigned int);
+
+	unsigned int getRaceBaseSpeed() const;
+	void setRaceBaseSpeed(unsigned int);
 
 	double getRaceBasePhysicalStrength() const;
 	void setRaceBasePhysicalStrength(double);
@@ -59,5 +62,16 @@ public:
 
 	vector<Attack> getRaceAvailableAttacks() const;
 	void setRaceAvailableAttacks(vector<Attack>);
+
+	// RACE FUNCTIONS
+
+	// display the race stats
+	void displayRaceStats() const;
 };
 
+// NON-MEMBER RACE FUNCTIONS
+
+// display playable races
+void displayPlayableRaces(const vector<Race>);
+
+#endif
